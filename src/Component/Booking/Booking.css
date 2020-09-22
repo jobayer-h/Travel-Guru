@@ -1,0 +1,16 @@
+.booking-btn{
+    width: 100%;
+}
+.booking-conatainer{
+    border: 1px solid #ABABAB;
+    border-radius: 15px;
+    margin: 30px auto;
+}
+
+.booking-conatainer .datepicker{
+    display: flex;
+    justify-content: space-around;
+}
+.booking-conatainer{
+    padding: 20px 40px;
+}

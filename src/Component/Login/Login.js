@@ -6,6 +6,7 @@ import facebookImg from '../../assets/Icon/fb.png';
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from '../../firebase/firebaseConfig';
+import Header from '../Header/Header';
 firebase.initializeApp(firebaseConfig);
 
 
@@ -85,7 +86,8 @@ const Login = () => {
         setNewUser(!newUser);
     }
     return (
-        <div className="container">
+        <div className="container height">
+            <Header></Header>
             <div className="login-box">
                 {
                     newUser ? 

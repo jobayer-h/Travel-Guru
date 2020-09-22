@@ -1,0 +1,8 @@
+.img-box:hover{
+    box-shadow: 1px 1px 20px yellow;
+    cursor: pointer;
+    border-radius: 15px
+}
+.height{
+    height: 100vh
+}

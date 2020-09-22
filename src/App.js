@@ -14,12 +14,6 @@ function App() {
   return (
     <Router>
       
-      
-
-    <div className="container">
-    <Header></Header>
-    </div>
-
       <Switch>
           <Route path="/home">
             <Home></Home>

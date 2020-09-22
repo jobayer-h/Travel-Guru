@@ -2,7 +2,6 @@ import React from 'react';
 import Header from '../Header/Header';
 import DatePickers from './Datepicker';
 import './Booking.css'
-import { Link } from '@material-ui/core';
 
 const Booking = () => {
     return (

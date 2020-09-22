@@ -18,17 +18,32 @@ const Login = () => {
         email: '',
         password: '',
         photo: ''
-    })
+    });
+    const updateUserName = name =>{
+        const user = firebase.auth().currentUser;
+
+        user.updateProfile({
+        displayName: name,
+        }).then(function() {
+            console.log(user.displayName);
+        }).catch(function(error) {
+            console.log(error);
+        });
+    };
     // email password sign up 
     const handleEmailSignUp =(e) => {
 
         if (user.email && user.password) {
             firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
+            .then(res => {
+                updateUserName(user.name)
+            })
             .catch(function(error) {
             var errorMessage = error.message;
             alert(errorMessage);
           });
         }
+        
     e.preventDefault();
     }
     // email password sign in
@@ -67,6 +82,11 @@ const Login = () => {
     }
     const handleBlur = (e) => {
         let isFieldValid ;
+        if (e.target.name === 'username') {
+            const newUserInfo = {...user};
+            newUserInfo[e.target.name] = e.target.value;
+            setUser(newUserInfo);
+        }
         if (e.target.name === 'email') {
             isFieldValid = /\S+@\S+\.\S+/.test(e.target.value);
         }
@@ -114,7 +134,7 @@ const Login = () => {
                 <form onSubmit={handleEmailSignUp}>
                     <h3>Create an account</h3>
 
-                    <input className="input-border form-control" name ="firstname" type="text" required placeholder="First Name"/>
+                    <input onBlur={handleBlur} className="input-border form-control" name ="username" type="text" required placeholder="First Name"/>
                     <br/>
                     <input className="input-border form-control" type="text" required placeholder="Last Name"/>
                     <br/>

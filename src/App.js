@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext, useState } from 'react';
 import './App.css';
 import Home from './Component/Home/Home';
 import {
@@ -12,8 +12,12 @@ import Login from './Component/Login/Login';
 import Search from './Component/Search/Search';
 import Booking from './Component/Booking/Booking';
 
+export const Userconst = createContext();
+
 function App() {
+  const [signInUser, setSignInUser] =useState({});
   return (
+    <Userconst.Provider value={[signInUser, setSignInUser]}>
     <Router>
       
       <Switch>
@@ -34,6 +38,7 @@ function App() {
           </Route>
         </Switch>
     </Router>
+    </Userconst.Provider>
   );
 }
 

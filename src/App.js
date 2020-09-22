@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import Header from './Component/Header/Header';
 import Login from './Component/Login/Login';
+import Search from './Component/Search/Search';
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
           </Route>
           <Route path="/login">
             <Login></Login>
+          </Route>
+          <Route path="/search">
+            <Search></Search>
           </Route>
           <Route exact path="/">
             <Home />

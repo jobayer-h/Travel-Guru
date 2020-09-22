@@ -9,6 +9,6 @@
     border-color: #F9A51A;
 }
 .nav-text{
-    color: #fff;
+    color: #fff !important;
     margin: 0 20px;
 }

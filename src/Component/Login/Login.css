@@ -3,6 +3,7 @@
     width: 450px;
     border-radius: 15px;
     margin: 30px auto;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 .login-box h3{
     font-size: 24px;
@@ -13,7 +14,10 @@
 .login-box form{
     padding: 20px 40px;
 }
-
+hr{
+    width: 380px;
+    margin: 0 auto;
+}
 .login-btn{
     width: 100%;
     color: black;
@@ -47,12 +51,13 @@ a:hover, span:hover{
     border-radius:20px;
     width:400px;
     margin: 15px auto;
-    
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
 }
 .signinwith:hover{
-    background-color: rgba(0, 0, 0, 0.301);
+    background-color: rgba(255, 255, 255, 0.5);
     cursor: pointer;
+    color: black;
 }
 .signinwith p{
     margin-left: 20%;

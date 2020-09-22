@@ -10,6 +10,7 @@ import {
 import Header from './Component/Header/Header';
 import Login from './Component/Login/Login';
 import Search from './Component/Search/Search';
+import Booking from './Component/Booking/Booking';
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
           </Route>
           <Route path="/login">
             <Login></Login>
+          </Route>
+          <Route path="/booking">
+            <Booking></Booking>
           </Route>
           <Route path="/search">
             <Search></Search>

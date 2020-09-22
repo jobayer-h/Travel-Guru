@@ -6,3 +6,14 @@
 .height{
     height: 100vh
 }
+.home-row{
+    display: flex;
+    align-items: center;
+    margin-top: 20%;
+}
+.padding{
+    margin: 40px auto;
+}
+.booking-btn{
+    width: 200px !important;
+}

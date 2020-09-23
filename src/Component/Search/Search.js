@@ -6,7 +6,6 @@ import svgmap from './img.svg'
 import hotelImg1 from '../../assets/Image/Rectangle26.png'
 import hotelImg2 from '../../assets/Image/Rectangle28.png'
 import hotelImg3 from '../../assets/Image/Rectangle7.png'
-import { Hotel } from '@material-ui/icons';
 const Search = () => {
 
     const hotels = [

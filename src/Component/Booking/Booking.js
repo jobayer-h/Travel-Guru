@@ -2,9 +2,15 @@ import React from 'react';
 import Header from '../Header/Header';
 import DatePickers from './Datepicker';
 import './Booking.css'
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const Booking = () => {
+    const history = useHistory();
+    
+    const handleBooking =() => {
+        history.push("/search");
+    }
+
     return (
         <div className="container coxs-bazar-page">
             <Header></Header>
@@ -15,7 +21,7 @@ const Booking = () => {
                 </div>
                 <div className="col-md-6">
                     <div className="booking-conatainer">
-                        <form>
+                        <form onSubmit={handleBooking}>
                             <label htmlFor="from">Origin</label>
                             <br/>
                             <input className="form-control" type="text" id="from" required placeholder="Dhaka"/>
@@ -37,9 +43,8 @@ const Booking = () => {
                             </div>
                             
                             <br/>
-                            <Link to="/search">
-                                <input className="form-control yellow-btn booking-btn" type="submit" value="Start Booking"/>
-                            </Link>
+                            
+                            <input className="form-control yellow-btn booking-btn" type="submit" value="Start Booking"/>
                             
                         </form>
                     </div>

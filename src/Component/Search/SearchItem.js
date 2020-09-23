@@ -1,5 +1,4 @@
 import React from 'react';
-import DemoImg from '../../assets/Image/Rectangle26.png';
 import starImg from '../../assets/Icon/star_1_.png'
 import './Search.css'
 const SearchItem = (props) => {

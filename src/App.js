@@ -5,9 +5,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
-import Header from './Component/Header/Header';
 import Login from './Component/Login/Login';
 import Search from './Component/Search/Search';
 import Booking from './Component/Booking/Booking';

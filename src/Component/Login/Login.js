@@ -9,8 +9,8 @@ import firebaseConfig from '../../firebase/firebaseConfig';
 import Header from '../Header/Header';
 import { Userconst } from '../../App';
 import { useHistory, useLocation } from 'react-router-dom';
-firebase.initializeApp(firebaseConfig);
 
+firebase.initializeApp(firebaseConfig);
 
 const Login = () => {
     const [signInUser, setSignInUser] = useContext(Userconst)
@@ -87,6 +87,7 @@ const Login = () => {
             alert(errorMessage)
           });
     }
+    // handleBlur for read from input form and validation
     const handleBlur = (e) => {
         let isFieldValid ;
         if (e.target.name === 'username') {
@@ -108,10 +109,13 @@ const Login = () => {
             setSignInUser(newUserInfo);
         }
     }
+    // login and create account toggle
     const [newUser,setNewUser] = useState(true)
     const toggle = () => {
         setNewUser(!newUser);
     }
+
+    
     return (
         <div className="container height">
             <Header></Header>

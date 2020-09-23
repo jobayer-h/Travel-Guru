@@ -38,7 +38,7 @@ const Header = () => {
                 </li>
                 <li className="nav-item">
                     {
-                        signInUser.email ? <button onClick={handleLogout} className="yellow-btn form-control">Log Out</button> : <Link className="nav-link nav-text" to="Login"><button className="yellow-btn form-control">Log In</button></Link>
+                        signInUser.P ? <button onClick={handleLogout} className="yellow-btn form-control">Log Out</button> : <Link className="nav-link nav-text" to="Login"><button className="yellow-btn form-control">Log In</button></Link>
                     }
                     
                 </li>

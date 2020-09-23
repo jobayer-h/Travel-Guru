@@ -1,7 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
-import { Userconst } from '../../App';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -12,8 +11,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-// const [signInUser, setSignInUser] = useContext(Userconst);
-// console.log(signInUser);
 
 export default function UserAvatar(props) {
     const {photoURL} = props.signInUser;

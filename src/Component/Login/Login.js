@@ -26,8 +26,6 @@ const Login = () => {
 
         user.updateProfile({
         displayName: name,
-        }).then(function() {
-            console.log(user.displayName);
         }).catch(function(error) {
             console.log(error);
         });
@@ -38,7 +36,8 @@ const Login = () => {
         if (signInUser.email && signInUser.password) {
             firebase.auth().createUserWithEmailAndPassword(signInUser.email, signInUser.password)
             .then(res => {
-                updateUserName(signInUser.name)
+                updateUserName(signInUser.name);
+                alert('Your account Created, you may login now!');
             })
             .catch(function(error) {
             var errorMessage = error.message;
@@ -52,7 +51,9 @@ const Login = () => {
     const handelEmailSignIn =(e) => {
         if (signInUser.email && signInUser.password) {
             firebase.auth().signInWithEmailAndPassword(signInUser.email, signInUser.password)
-            .then(function(){
+            .then(function(result) {
+                var user = result.user;
+                setSignInUser(user);
                 history.replace(from);
             })
             .catch(function(error) {

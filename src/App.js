@@ -16,8 +16,7 @@ import PrivateRoute from './Component/PrivateRoute/PrivateRoute';
 export const Userconst = createContext();
 
 function App() {
-  const [signInUser, setSignInUser] =useState({
-});
+  const [signInUser, setSignInUser] =useState({});
   return (
     <Userconst.Provider value={[signInUser, setSignInUser]}>
     <Router>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './Login.css';
 import googleImg from '../../assets/Icon/google.png';
 import facebookImg from '../../assets/Icon/fb.png';
@@ -7,18 +7,20 @@ import * as firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from '../../firebase/firebaseConfig';
 import Header from '../Header/Header';
+import { Userconst } from '../../App';
+import { useHistory, useLocation } from 'react-router-dom';
 firebase.initializeApp(firebaseConfig);
 
 
 const Login = () => {
-    // user state
-    const [user, setUser] = useState({
-        isLoggedIn:false,
-        name: '',
-        email: '',
-        password: '',
-        photo: ''
-    });
+    const [signInUser, setSignInUser] = useContext(Userconst)
+
+    let history = useHistory();
+    let location = useLocation();
+  
+    let { from } = location.state || { from: { pathname: "/" } };
+    
+    
     const updateUserName = name =>{
         const user = firebase.auth().currentUser;
 
@@ -33,10 +35,10 @@ const Login = () => {
     // email password sign up 
     const handleEmailSignUp =(e) => {
 
-        if (user.email && user.password) {
-            firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
+        if (signInUser.email && signInUser.password) {
+            firebase.auth().createUserWithEmailAndPassword(signInUser.email, signInUser.password)
             .then(res => {
-                updateUserName(user.name)
+                updateUserName(signInUser.name)
             })
             .catch(function(error) {
             var errorMessage = error.message;
@@ -48,9 +50,11 @@ const Login = () => {
     }
     // email password sign in
     const handelEmailSignIn =(e) => {
-        if (user.email && user.password) {
-            firebase.auth().signInWithEmailAndPassword(user.email, user.password)
-            .then(response =>  console.log(response))
+        if (signInUser.email && signInUser.password) {
+            firebase.auth().signInWithEmailAndPassword(signInUser.email, signInUser.password)
+            .then(function(){
+                history.replace(from);
+            })
             .catch(function(error) {
                 var errorMessage = error.message;
                 alert(errorMessage);
@@ -63,7 +67,8 @@ const Login = () => {
         const googleProvider = new firebase.auth.GoogleAuthProvider();
         firebase.auth().signInWithPopup(googleProvider).then(function(result) {
             var user = result.user;
-            console.log(user);
+            setSignInUser(user);
+            history.replace(from);
         }).catch(function(error) {
             var errorMessage = error.message;
             alert(errorMessage);
@@ -74,7 +79,8 @@ const Login = () => {
         const facebookProvider = new firebase.auth.FacebookAuthProvider();
         firebase.auth().signInWithPopup(facebookProvider).then(function(result) {
             var user = result.user;
-            console.log(user);
+            setSignInUser(user);
+            history.replace(from);
           }).catch(function(error) {
             var errorMessage = error.message;
             alert(errorMessage)
@@ -83,9 +89,9 @@ const Login = () => {
     const handleBlur = (e) => {
         let isFieldValid ;
         if (e.target.name === 'username') {
-            const newUserInfo = {...user};
+            const newUserInfo = {...signInUser};
             newUserInfo[e.target.name] = e.target.value;
-            setUser(newUserInfo);
+            setSignInUser(newUserInfo);
         }
         if (e.target.name === 'email') {
             isFieldValid = /\S+@\S+\.\S+/.test(e.target.value);
@@ -96,9 +102,9 @@ const Login = () => {
             isFieldValid = isPasswordLong && isPasswordHasNumbers;
         }
         if (isFieldValid) {
-            const newUserInfo = {...user};
+            const newUserInfo = {...signInUser};
             newUserInfo[e.target.name] = e.target.value;
-            setUser(newUserInfo);
+            setSignInUser(newUserInfo);
         }
     }
     const [newUser,setNewUser] = useState(true)

@@ -12,3 +12,8 @@
     color: #fff !important;
     margin: 0 20px;
 }
+.loged-in-user-email{
+    color: #F9A51A !important;
+    font-size: 20px;
+    font-weight: 700;
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../Header/Header';
 import DatePickers from './Datepicker';
 import './Booking.css'
+import { Link } from 'react-router-dom';
 
 const Booking = () => {
     return (
@@ -14,7 +15,7 @@ const Booking = () => {
                 </div>
                 <div className="col-md-6">
                     <div className="booking-conatainer">
-                        <form action="/search">
+                        <form>
                             <label htmlFor="from">Origin</label>
                             <br/>
                             <input className="form-control" type="text" id="from" required placeholder="Dhaka"/>
@@ -36,8 +37,10 @@ const Booking = () => {
                             </div>
                             
                             <br/>
-
-                            <input className="form-control yellow-btn booking-btn" type="submit" value="Start Booking"/>
+                            <Link to="/search">
+                                <input className="form-control yellow-btn booking-btn" type="submit" value="Start Booking"/>
+                            </Link>
+                            
                         </form>
                     </div>
                 </div>

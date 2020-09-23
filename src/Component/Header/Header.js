@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { Userconst } from '../../App';
 import logo from '../../logo.png'
 import './Header.css'
+import UserAvatar from './UserAvatar';
 const Header = () => {
+    const [signInUser, setSignInUser] = useContext(Userconst);
+    
+
+    const handleLogout =() => {
+        setSignInUser({})
+    }
+
     return (
     <div className="d-flex justify-content-between">
         <nav className="navbar navbar-expand-lg navbar-light ">
@@ -28,7 +37,13 @@ const Header = () => {
                     <Link className="nav-link nav-text" to="">Blog </Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link nav-text" to="Login"><button className="yellow-btn form-control">Login</button></Link>
+                    {
+                        signInUser.email ? <button onClick={handleLogout} className="yellow-btn form-control">Log Out</button> : <Link className="nav-link nav-text" to="Login"><button className="yellow-btn form-control">Log In</button></Link>
+                    }
+                    
+                </li>
+                <li className="nav-item ">
+                    <UserAvatar className="nav-link nav-text" signInUser={signInUser}></UserAvatar>
                 </li>
             
             </ul>

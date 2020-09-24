@@ -5,7 +5,7 @@ import facebookImg from '../../assets/Icon/fb.png';
 
 import * as firebase from "firebase/app";
 import "firebase/auth";
-import firebaseConfig from '../../firebase/firebaseConfig';
+import firebaseConfig from '../../APIs/firebaseConfig';
 import Header from '../Header/Header';
 import { Userconst } from '../../App';
 import { useHistory, useLocation } from 'react-router-dom';

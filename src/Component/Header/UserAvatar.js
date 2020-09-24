@@ -14,6 +14,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function UserAvatar(props) {
     const {photoURL} = props.signInUser;
+    console.log(photoURL);
+
   const classes = useStyles();
 
   return (

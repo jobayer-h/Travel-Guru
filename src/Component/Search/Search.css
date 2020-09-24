@@ -8,5 +8,11 @@
     height: 20px;
 }
 .search-row{
-    margin: 10px auto;
+    margin-bottom: 20px;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 20px;
+}
+.search-row:hover{
+    box-shadow: 5px 5px 20px gray;
+    cursor: pointer;
 }

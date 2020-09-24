@@ -13,17 +13,17 @@ const Header = () => {
     }
 
     return (
-    <div className="d-flex justify-content-between">
+    <div className="d-flex justify-content-between main-header">
         <nav className="navbar navbar-expand-lg navbar-light ">
         <Link className="navbar-brand" to="/"><img className="logo" src={logo} alt="Travel-Guru"/></Link>
-
-        <form className="form-inline my-2 my-lg-0">
-                <input className="form-control mr-sm-2" type="search" placeholder="Search your Destination..." aria-label="Search"></input>
-        </form>
 
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
         </button>
+
+        <form className="form-inline my-2 my-lg-0">
+                <input className="form-control mr-sm-2 search-header" type="search" placeholder="Search your Destination..." aria-label="Search"></input>
+        </form>
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">

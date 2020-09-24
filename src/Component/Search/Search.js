@@ -26,6 +26,24 @@ const Search = () => {
             price: '44',
             ratting:'4.9 (25)',
             img:hotelImg3
+        },
+        {
+            name: 'Light bright airy stylish apt & safe peaceful stay',
+            price: '34',
+            ratting:'4.9 (20)',
+            img:hotelImg1
+        },
+        {
+            name: 'Apartment in Lost Panorama',
+            price: '52',
+            ratting:'4.8 (10)',
+            img:hotelImg2
+        },
+        {
+            name: 'AR Lounge & Pool (r&r + b&b)',
+            price: '44',
+            ratting:'4.9 (25)',
+            img:hotelImg3
         }
     ];
 
